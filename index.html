@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dating With My Bee</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #2c003e, #000000);
+      text-align: center;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px 0;
+    }
+    h1 { color: #ffb6c1; animation: fadeInDown 2s ease; margin-bottom: 5px; }
+    .subtitle { font-size: 1.1em; color: #ddd; margin: 5px 0; }
+    .countdown { font-size: 1.8em; margin: 20px 0; color: #ffb6c1; font-weight: bold; animation: pulse 2s infinite; }
+    
+    h2 { color: #ffb6c1; margin-top: 40px; }
+    
+    .event {
+      margin: 15px auto; padding: 15px;
+      max-width: 500px;
+      border: 2px solid #ffb6c1; border-radius: 10px;
+      background: rgba(255,182,193,0.1);
+      opacity: 0; transform: translateY(30px);
+      animation: fadeUp 1.5s forwards;
+    }
+    .event:nth-child(1) { animation-delay: 0.5s; }
+    .event:nth-child(2) { animation-delay: 1s; }
+    .event:nth-child(3) { animation-delay: 1.5s; }
+    .event:nth-child(4) { animation-delay: 2s; }
+    .event:nth-child(5) { animation-delay: 2.5s; }
+    .event:nth-child(6) { animation-delay: 3s; }
+
+    .gallery {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 15px; margin: 20px auto; max-width: 900px;
+      opacity: 0; transform: scale(0.9);
+      animation: fadeInScale 2s forwards 3.5s;
+    }
+    .gallery img {
+      width: 200px; height: 150px; object-fit: cover; border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(255,182,193,0.3);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover { transform: scale(1.1); }
+
+    /* RSVP Button Styling */
+    .rsvp-section { margin: 40px 0; opacity: 0; animation: fadeIn 2s ease forwards 4s; }
+    .btn-whatsapp {
+      background-color: #25d366; color: white;
+      padding: 15px 30px; font-size: 1.2em; font-weight: bold;
+      text-decoration: none; border-radius: 30px;
+      display: inline-block; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      transition: 0.3s;
+    }
+    .btn-whatsapp:hover { background-color: #128c7e; transform: translateY(-3px); }
+
+    footer { margin-top: 5px; font-style: italic; color: #ffb6c1; opacity: 0; animation: fadeIn 2s ease forwards 4.5s; padding: 20px; }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInScale {
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    /* Background Stars */
+    .stars { position: fixed; width: 100%; height: 100%; top: 0; left: 0; background: transparent; overflow: hidden; z-index: -1; }
+    .star { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle 2s infinite alternate; }
+    @keyframes twinkle { from { opacity: 0.2; } to { opacity: 1; } }
+  </style>
+</head>
+<body>
+
+  <div class="stars">
+    <div class="star" style="top:10%; left:20%; animation-delay:0s;"></div>
+    <div class="star" style="top:30%; left:50%; animation-delay:1s;"></div>
+    <div class="star" style="top:70%; left:80%; animation-delay:0.5s;"></div>
+    <div class="star" style="top:60%; left:10%; animation-delay:1.5s;"></div>
+    <div class="star" style="top:40%; left:70%; animation-delay:2s;"></div>
+    <div class="star" style="top:20%; left:90%; animation-delay:2.5s;"></div>
+  </div>
+
+  <h1>🌸 Dating With My Bee 🌸</h1>
+  <div class="subtitle">Sabtu, 04 Juli 2026 – Ambon</div>
+  <div class="subtitle" style="color: #ffb6c1; font-weight: bold;">to My Beloved: Mrs. Nurhilda Tuaputty</div>
+
+  <h2>Countdown Menuju Sarapan Romantis</h2>
+  <div id="mainCountdown" class="countdown">Menghitung mundur...</div>
+
+  <h2>Rundown Acara</h2>
+  <div class="event"><h3>10.00 – Sarapan</h3></div>
+  <div class="event"><h3>12.00–13.00 – Makan Siang (Mie Ayam)</h3></div>
+  <div class="event"><h3>13.00–16.00 – Ngopi</h3></div>
+  <div class="event"><h3>16.00–19.00 – Nongkrong</h3></div>
+  <div class="event"><h3>19.00–20.00 – Makan Malam Ayam Lalapan</h3></div>
+  <div class="event"><h3>20.00 s.d Minggu – Pulang/Istirahat</h3></div>
+
+  <h2>Galeri Romantis</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400" alt="Pantai">
+    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400" alt="Sunset">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400" alt="Ngopi">
+    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400" alt="Makanan">
+  </div>
+
+  <div class="rsvp-section">
+    <h2>Konfirmasi Kehadiran 💌</h2>
+    <p>Klik tombol di bawah ini untuk memberikan jawabanmu langsung ke WhatsApp-ku:</p>
+    <a href="https://wa.me/6285824893650?text=Hai%20sayang!%20Aku%20udah%20buka%20undangannya.%20Tentu%20saja%20aku%20mau%20kencan%20seharian%20ini%20bersamamu!%20%F0%9F%92%96" target="_blank" class="btn-whatsapp">
+      Balas Undangan Klik Di Sini 💖
+    </a>
+  </div>
+
+  <audio autoplay loop controls style="margin: 20px auto; display: block; max-width: 300px;">
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <footer>
+    “Setiap detik bersamamu adalah keabadian kecil.” – Jalo Tuharea
+  </footer>
+
+  <script>
+    function countdown(id, targetDate) {
+      const el = document.getElementById(id);
+      function update() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        if (distance < 0) {
+          el.innerHTML = "Acara sudah dimulai ❤️";
+          return;
+        }
+        const days = Math.floor(distance / (1000*60*60*24));
+        const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+        const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+        const seconds = Math.floor((distance % (1000*60))/1000);
+        
+        let text = "";
+        if (days > 0) text += `${days} hari `;
+        text += `${hours} jam ${minutes} menit ${seconds} detik lagi`;
+        el.innerHTML = text;
+      }
+      update();
+      setInterval(update, 1000);
+    }
+
+    // Target Sarapan jam 10.00 WIT (GMT+9)
+    const target = new Date("July 4, 2026 10:00:00 GMT+9").getTime();
+    countdown("mainCountdown", target);
+  </script>
+</body>
+</html>

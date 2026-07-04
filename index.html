@@ -17,7 +17,7 @@
       padding: 0;
     }
     
-    /* Overlay Layar Pembuka untuk Autoplay Musik */
+    /* Overlay Layar Pembuka */
     #overlay {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -27,7 +27,7 @@
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      transition: opacity 1s ease;
+      transition: opacity 0.5s ease;
     }
     .btn-buka {
       background-color: #ffb6c1; color: #2c003e;
@@ -107,19 +107,16 @@
 </head>
 <body>
 
-  <!-- Musik Latar -->
-  <audio id="bgMusic" loop>
+  <audio id="bgMusic" loop preload="auto">
     <source src="river-flows-in-you.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Halaman Pembuka (Overlay) -->
   <div id="overlay">
     <h1 style="color: #ffb6c1; margin-bottom: 10px;">Hai, Bee 🌸</h1>
     <p style="color: #ddd; margin-bottom: 40px; font-size: 1.1em;">Ada pesan spesial buat kamu...</p>
     <button class="btn-buka" onclick="bukaUndangan()">Buka Undangan 💌</button>
   </div>
 
-  <!-- Bintang Latar Belakang -->
   <div class="stars">
     <div class="star" style="top:10%; left:20%; animation-delay:0s;"></div>
     <div class="star" style="top:30%; left:50%; animation-delay:1s;"></div>
@@ -129,17 +126,14 @@
     <div class="star" style="top:20%; left:90%; animation-delay:2.5s;"></div>
   </div>
 
-  <!-- Konten Utama (Muncul setelah tombol diklik) -->
   <div id="mainContent">
     <h1>🌸 Dating With My Bee 🌸</h1>
     <div class="subtitle">Sabtu, 04 Juli 2026 – Ambon</div>
     <div class="subtitle" style="color: #ffb6c1; font-weight: bold;">to My Beloved: Mrs. Nurhilda Tuaputty</div>
 
-    <!-- Countdown Utama -->
     <h2>Countdown Menuju Sarapan Romantis</h2>
     <div id="mainCountdown" class="countdown">Menghitung mundur...</div>
 
-    <!-- Rundown Acara -->
     <h2>Rundown Acara</h2>
     <div class="event"><h3>10.00 – Sarapan</h3></div>
     <div class="event"><h3>12.00–13.00 – Makan Siang (Mie Ayam)</h3></div>
@@ -148,7 +142,6 @@
     <div class="event"><h3>19.00–20.00 – Makan Malam Ayam Lalapan</h3></div>
     <div class="event"><h3>20.00 s.d Minggu – Pulang/Istirahat</h3></div>
 
-    <!-- Galeri Foto (Menggunakan foto yang sudah Anda upload) -->
     <h2>Galeri Romantis</h2>
     <div class="gallery">
       <img src="foto-berdua-1.jpeg" alt="Foto Kenangan 1">
@@ -157,7 +150,6 @@
       <img src="foto-berdua-4.jpeg" alt="Foto Kenangan 4">
     </div>
 
-    <!-- RSVP Section (GANTI 628123456789 DENGAN NOMOR WA ANDA) -->
     <div class="rsvp-section">
       <h2>Konfirmasi Kehadiran 💌</h2>
       <p>Klik tombol di bawah ini untuk memberikan jawabanmu langsung ke WhatsApp-ku:</p>
@@ -172,17 +164,17 @@
   </div>
 
   <script>
-    // Fungsi untuk membuka undangan dan menyalakan musik
     function bukaUndangan() {
-      // Menyembunyikan overlay
+      // Musik langsung diputar saat tombol disentuh
+      var audio = document.getElementById('bgMusic');
+      audio.play();
+
+      // Efek visual menyusul
       document.getElementById('overlay').style.opacity = '0';
       setTimeout(() => {
         document.getElementById('overlay').style.display = 'none';
-        // Menampilkan konten utama
         document.getElementById('mainContent').style.display = 'block';
-        // Memutar musik
-        document.getElementById('bgMusic').play();
-      }, 500); // jeda 0.5 detik agar transisi halus
+      }, 500);
     }
 
     // Fungsi Countdown
@@ -209,7 +201,6 @@
       setInterval(update, 1000);
     }
 
-    // Target Sarapan jam 10.00 WIT (GMT+9)
     const target = new Date("July 4, 2026 10:00:00 GMT+9").getTime();
     countdown("mainCountdown", target);
   </script>
